@@ -1,4 +1,4 @@
-const User = require('../models/users.model');
+const Users = require('../models/users.model');
 const jwt = require("jsonwebtoken");
 const { checkout } = require('../routes');
 const secret = "mysecret";
@@ -11,12 +11,12 @@ module.exports = {
     async create(req,res){
         const {username, email, user_lvl, password} = req.body;
         let data = {};
-        let userFind =  await User.findOne({email});
+        let userFind =  await Users.findOne({email});
         
         if(!userFind){
             data = {username, email, user_lvl, password};
 
-            user = await User.create(data);
+            user = await Users.create(data);
             return res.status(200).json(userFind);
         }else{
             return res.status(500).json(userFind);
@@ -24,23 +24,23 @@ module.exports = {
     },
     async details(req,res){
         const {_id} = req.params;
-        const detailUser = await User.findOne({_id});
+        const detailUser = await Users.findOne({_id});
         res.json(detailUser);
     },
     async delete(req,res){
         const { _id } = req.params;
-        const deleteUser = await User.findByIdAndDelete({_id});
+        const deleteUser = await Users.findByIdAndDelete({_id});
         return res.json(deleteUser);
     },
     async update(req,res){
         const { _id, username, email, user_lvl, password} = req.body;
         const data = {username, email, user_lvl, password};
-        const updateUser = await User.findOneAndUpdate({_id},data,{new:true});
+        const updateUser = await Users.findOneAndUpdate({_id},data,{new:true});
         res.json(updateUser);
     },
     async login(req,res){
         const { email, password } = req.body;
-        User.findOne({email: email}, function(err,user){
+        Users.findOne({email: email}, function(err,user){
             if(err){
                 console.log(err);
                 res.status(200).json({error: "Server error, try again!"});

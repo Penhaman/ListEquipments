@@ -4,7 +4,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import PeopleIcon from '@material-ui/icons/People';
 
 import ExitToApp from '@material-ui/icons/ExitToApp';
@@ -19,41 +19,41 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button component="a" href="/admin/usuarios" >
+    <ListItem button component="a" href="/admin/users" >
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Usuários" />
+      <ListItemText primary="Users" />
     </ListItem>
-    <ListItem button component="a" href="/admin/produtos" >
+    <ListItem button component="a" href="/admin/equips" >
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <SettingsApplicationsIcon />
       </ListItemIcon>
-      <ListItemText primary="Produtos" />
+      <ListItemText primary="Equipamentos" />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Opções</ListSubheader>
-    <ListItem button onClick={confirmSair}>
+    <ListSubheader inset>Options</ListSubheader>
+    <ListItem button onClick={confirmExit}>
       <ListItemIcon>
         <ExitToApp />
       </ListItemIcon>
-      <ListItemText primary="Sair" />
+      <ListItemText primary="Exit" />
     </ListItem>
   </div>
 );
 
-async function confirmSair(){
-  if(window.confirm("Deseja realmente sair do sistema?")){
-    const response = await api.get("/api/usuarios/destroytoken",{headers:{token: getToken()}});
+async function confirmExit(){
+  if(window.confirm("Do you really wish to exit?")){
+    const response = await api.get("/api/users/destroytoken",{headers:{token: getToken()}});
     if(response.status===200){
       logout();
       window.location.href = '/admin/login'
     }else{
-      alert("Não foi possível fazer o logout!");
+      alert("Couldn't logou!");
     }
   }
 }

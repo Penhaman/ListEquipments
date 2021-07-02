@@ -10,9 +10,9 @@ import Produtos from './pages/admin/produtos';
 import ProdutoEditar from './pages/admin/produtos/produtos.editar';
 import ProdutoCadastrar from './pages/admin/produtos/produtos.cadastrar'
 
-import Usuarios from './pages/admin/users';
-import UsuarioEditar from './pages/admin/users/usuarios.editar';
-import UsuarioCadastrar from './pages/admin/users/usuarios.cadastrar'
+import Users from './pages/admin/users';
+import UsersEdit from './pages/admin/users/users.edit';
+import UsersRegister from './pages/admin/users/users.register'
 
 // IMPORTS CLIENT
 import ProdutoDetails from './pages/client/produtos/produtos.details';
@@ -37,9 +37,9 @@ export default function Routes(){
                 <PrivateRoute path="/admin/produtos/cadastrar" exact component={ProdutoCadastrar} />
                 <PrivateRoute path="/admin/produtos/editar/:idProduto" exact component={ProdutoEditar} />
 
-                <PrivateRoute path="/admin/usuarios" exact component={Usuarios} />
-                <PrivateRoute path="/admin/usuarios/cadastrar" exact component={UsuarioCadastrar} />
-                <PrivateRoute path="/admin/usuarios/editar/:idUsuario" exact component={UsuarioEditar} />
+                <PrivateRoute path="/admin/users" exact component={Users} />
+                <PrivateRoute path="/admin/users/register" exact component={UsersRegister} />
+                <PrivateRoute path="/admin/users/edit/:idUser" exact component={UsersEdit} />
 
             </Switch>
         </BrowserRouter>

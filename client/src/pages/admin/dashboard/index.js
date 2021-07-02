@@ -10,8 +10,8 @@ import { getUserLvl } from '../../../services/auth';
 
 import Footer from '../../../components/footer-admin';
 
-import DashFuncionario from './funcionario';
-import DashGerente from './gerente';
+import DashPublic from './public';
+import DashManager from './manager';
 import DashAdmin from './admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,9 +44,9 @@ function getDashboard(){
   if(getUserLvl()==='1'){
     return <DashAdmin />
   }else if( getUserLvl()==='2'){
-    return <DashGerente />
+    return <DashManager />
   }else{
-    return <DashFuncionario />
+    return <DashPublic />
   }
 }
 export default function Dashboard() {

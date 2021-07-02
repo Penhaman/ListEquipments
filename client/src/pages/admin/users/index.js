@@ -103,9 +103,9 @@ export default function UsersList() {
                         <TableRow>
                           <TableCell>Nome</TableCell>
                           <TableCell align="center">Email</TableCell>
-                          <TableCell align="center">Tipo</TableCell>
-                          <TableCell align="center">Data de Cadastro</TableCell>
-                          <TableCell align="right">Opções</TableCell>
+                          <TableCell align="center">Level</TableCell>
+                          <TableCell align="center">Register Date</TableCell>
+                          <TableCell align="right">Options</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -114,12 +114,12 @@ export default function UsersList() {
                             <TableCell component="th" scope="row">
                               {row.username}
                             </TableCell>
-                            <TableCell align="center">{row.username}</TableCell>
+                            <TableCell align="center">{row.email}</TableCell>
                             <TableCell align="center"><Chip label={getUserLvl(row.user_lvl)} color={getUserLvlLabel(row.user_lvl)}/></TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                             <ButtonGroup aria-label="outlined primary button group">
-                              <Button variant="contained" color="primary" href={'/admin/user/edit/'+row._id}><AutorenewIcon /> Update</Button>
+                              <Button variant="contained" color="primary" href={'/admin/users/edit/'+row._id}><AutorenewIcon /> Update</Button>
                               <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                             </ButtonGroup>
                             </TableCell>

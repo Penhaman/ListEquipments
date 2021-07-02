@@ -32,49 +32,49 @@ const useStyles = makeStyles((theme) => ({
   btnSuccess:{ backgroundColor:"green",color:"#fff","&:hover":{backgroundColor:"#12b912"}}
 }));
 
-export default function UsuarioCadastrar() {
+export default function UsersEdit() {
   const classes = useStyles();
 
-  const [nome , setNome] = useState('');
+  const [username , setUsername] = useState('');
   const [email , setEmail] = useState('');
-  const [senha , setSenha] = useState('');
-  const [tipo , setTipo] = useState('');
+  const [password , setPassword] = useState('');
+  const [user_lvl , setUserLvl] = useState('');
 
-  const { idUsuario } = useParams();
+  const { idUser } = useParams();
 
 
   useEffect(() => {
-    async function getUsuario(){
-      var response = await api.get('/api/usuarios.details/'+idUsuario);
+    async function getUser(){
+      var response = await api.get('/api/users.details/'+idUser);
       
-      setNome(response.data.nome_usuario);
-      setEmail(response.data.email_usuario);
-      setSenha(response.data.senha_usuario);
-      setTipo(response.data.tipo_usuario);
+      setUsername(response.data.username);
+      setEmail(response.data.email);
+      setPassword(response.data.password);
+      setUserLvl(response.data.user_lvl);
     }
 
-    getUsuario();
+    getUser();
   },[])
 
   async function handleSubmit(){
 
     const data = {
-      nome_usuario:nome,
-      email_usuario:email,
-      senha_usuario:senha,
-      tipo_usuario:tipo,
-    _id:idUsuario}
+      username:username,
+      email:email,
+      password:password,
+      user_lvl:user_lvl,
+    _id:idUser}
 
-      if(nome!==''&&email!==''&&senha!==''&&tipo!==''){
-        const response = await api.put('/api/usuarios/',data);
+      if(username!==''&&email!==''&&password!==''&&user_lvl!==''){
+        const response = await api.put('/api/users/',data);
 
         if(response.status===200){
-          window.location.href='/admin/usuarios'
+          window.location.href='/admin/users'
         }else{
-          alert('Erro ao atualizar o usuário!');
+          alert('Error updating the user!');
         }
       }else{
-        alert('Por favor, preencha todos os dados!');
+        alert('Please fill in every blank!');
       }
 
      
@@ -84,30 +84,30 @@ export default function UsuarioCadastrar() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'USUÁRIOS'}/>
+      <MenuAdmin title={'USERS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-            <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/admin/usuarios'}><ArrowBackIcon /> Voltar</Button>
-            <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/admin/usuarios/cadastrar'}>
+            <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/admin/users'}><ArrowBackIcon /> Back</Button>
+            <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/admin/users/register'}>
               <AddIcon />
-              Cadastrar
+              Register
             </Button>
               <Paper className={classes.paper}>
-                <h2>Atualização de Usuários</h2>
+                <h2>Users Update</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                     <TextField
                       required
-                      id="nome"
-                      name="nome"
-                      label="Nome completo"
+                      id="username"
+                      name="username"
+                      label="Name"
                       fullWidth
-                      autoComplete="nome"
-                      value={nome}
-                      onChange={e => setNome(e.target.value)}
+                      autoComplete="username"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -125,16 +125,16 @@ export default function UsuarioCadastrar() {
                 
                   <Grid item xs={12} sm={3}>
                   <FormControl className={classes.formControl}>
-                    <InputLabel id="labelTipo">Tipo</InputLabel>
+                    <InputLabel id="labelUserLvl">Level</InputLabel>
                     <Select
-                      labelId="labelTipo"
-                      id="tipo"
-                      value={tipo}
-                      onChange={e => setTipo(e.target.value)}
+                      labelId="labelUserLvl"
+                      id="user_lvl"
+                      value={user_lvl}
+                      onChange={e => setUserLvl(e.target.value)}
                     >
-                      <MenuItem value={1}>Administrador</MenuItem>
-                      <MenuItem value={2}>Gerente</MenuItem>
-                      <MenuItem value={3}>Funcionário</MenuItem>
+                      <MenuItem value={1}>Admin</MenuItem>
+                      <MenuItem value={2}>Manager</MenuItem>
+                      <MenuItem value={3}>Public</MenuItem>
                     </Select>
                   </FormControl>
                   </Grid>
@@ -142,18 +142,18 @@ export default function UsuarioCadastrar() {
                     <TextField
                       type="password"
                       required
-                      id="senha"
-                      name="senha"
-                      label="Senha"
+                      id="password"
+                      name="password"
+                      label="Password"
                       fullWidth
-                      autoComplete="senha"
-                      value={senha}
-                      onChange={e => setSenha(e.target.value)}
+                      autoComplete="password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
                     />
                   </Grid>
                   <Grid item xs={12} sm={12}>
                   <Button variant="contained"  onClick={handleSubmit} className={classes.btnSuccess}>
-                    <SaveIcon /> Salvar
+                    <SaveIcon /> Save
                   </Button>
                   </Grid>
                 </Grid>

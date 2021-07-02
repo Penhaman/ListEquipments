@@ -6,9 +6,9 @@ module.exports = {
         res.json(listEquip);
     },
     async create(req, res){
-        const {brand, model, client, quantity, observations} = req.body;
+        const {brand, model, client, quantity, observations, salesman} = req.body;
         let data = {};
-        data = {brand, model, client, quantity, observations};
+        data = {brand, model, client, quantity, observations, salesman};
         let equipFind = await Equip.create(data);
         return res.status(200).json(equipFind);
     },
@@ -23,8 +23,8 @@ module.exports = {
         return res.json(deleteEquip);
     },
     async update(req,res) {
-        const {_id, brand, model, orderNo, client, quantity, observations} = req.body;
-        const data = {brand, model, orderNo, client, quantity, observations};
+        const {_id, brand, model, client, quantity, observations} = req.body;
+        const data = {brand, model, client, quantity, observations};
         const updateEquip = await Equip.findOneAndUpdate({_id}, data, {new:true});
 
         return res.json(updateEquip);

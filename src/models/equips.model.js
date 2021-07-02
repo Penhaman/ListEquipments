@@ -6,6 +6,7 @@ const DataSchema = new mongoose.Schema({
     client: String,
     quantity: Number,
     observations: String,
+    salesman: String,
 },{
     timestamps:true,
     status: {type: String, default: "Em Espera"},

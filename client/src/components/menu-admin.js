@@ -18,7 +18,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 import { mainListItems, secondaryListItems } from './list-menu-admin';
 import { getUsername } from '../services/auth';
-import logoSistema from '../assets/img/logo-empresa.png';
+import logoSistema from '../assets/img/Logo_Assisminho_Color.png';
 
 const drawerWidth = 240;
 
@@ -123,7 +123,7 @@ export default function MenuAdmin({title}){
         open={open}
         >
             <div className={classes.toolbarIcon}>
-              <img style={{width:150,height:50}} src={logoSistema} alt="Logo sistema" />
+              <img style={{width:150,height:'auto'}} src={logoSistema} alt="Logo Assisminho" />
             <IconButton onClick={handleDrawerClose}>
                 <ChevronLeftIcon />
             </IconButton>

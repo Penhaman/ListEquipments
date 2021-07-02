@@ -53,7 +53,7 @@ async function confirmExit(){
       logout();
       window.location.href = '/admin/login'
     }else{
-      alert("Couldn't logou!");
+      alert("Couldn't logout!");
     }
   }
 }

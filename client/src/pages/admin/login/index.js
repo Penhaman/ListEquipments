@@ -74,7 +74,7 @@ export default function SignIn() {
                     setUsername(res.data.username);
                     setUserLvl(res.data.user_lvl);
 
-                    window.location.href= '/admin'
+                    window.location.href= '/admin/equipments'
                 }else if(res.data.status===2){
                     alert('Attention: '+res.data.error);
                 }

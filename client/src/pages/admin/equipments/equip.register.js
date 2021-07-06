@@ -9,15 +9,11 @@ import TextField from '@material-ui/core/TextField';
 import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin';
 
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SaveIcon from '@material-ui/icons/Save';
 import api from '../../../services/api';
-import { getUsername } from '../services/auth';
+import { getUsername } from '../../../services/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {display: 'flex',},
@@ -38,7 +34,7 @@ export default function EquipRegister() {
   const [client, setClient] = useState('');
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
-  const [salesman, setSalesman] = useState('');
+  const [salesman, setSalesman] = useState(getUsername);
 
   async function handleSubmit(){
     const data = {
@@ -61,9 +57,7 @@ export default function EquipRegister() {
       }else{
         alert('Please fill in every blank!');
       }
-
-     salesman = getUsername();
-
+      console.log(salesman);
   }
   
   return (
@@ -75,11 +69,11 @@ export default function EquipRegister() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-              <Button style={{marginBottom:10}} variant="contained" href={'/admin/users'}><ArrowBackIcon />  Back</Button>
+              <Button style={{marginBottom:10}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon />  Back</Button>
               <Paper className={classes.paper}>
                 <h2>Add Equipment</h2>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={12}>
+                  <Grid item xs={12} sm={4}>
                     <TextField
                       required
                       id="brand"
@@ -91,7 +85,7 @@ export default function EquipRegister() {
                       onChange={e => setBrand(e.target.value)}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} sm={4}>
                     <TextField
                       required
                       id="model"
@@ -103,7 +97,7 @@ export default function EquipRegister() {
                       onChange={e => setModel(e.target.value)}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={3}>
+                  <Grid item xs={12} sm={4}>
                     <TextField
                       type="client"
                       required
@@ -116,7 +110,7 @@ export default function EquipRegister() {
                       onChange={e => setClient(e.target.value)}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={3}>
+                  <Grid item xs={12} sm={2}>
                     <TextField
                       type="quantity"
                       inputComponent="number"
@@ -130,7 +124,7 @@ export default function EquipRegister() {
                       onChange={e => setQuantity(e.target.value)}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={3}>
+                  <Grid item xs={12} sm={12}>
                     <TextField
                       type="observations"
                       id="observations"

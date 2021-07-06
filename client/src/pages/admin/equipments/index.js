@@ -20,8 +20,6 @@ import api from '../../../services/api';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Chip from '@material-ui/core/Chip';
-import {getUserLvl,getUserLvlLabel} from '../../../functions/static_data'
 import AddIcon from '@material-ui/icons/Add';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -65,14 +63,14 @@ export default function EquipList() {
       setEquips(response.data)
       setLoading(false);
     }
-    loadUsers();
+    loadEquips();
   },[]);
 
   async function handleDelete(id){
     if(window.confirm("Do you want to delete this equipment?")){
       var result = await api.delete('/api/equipments/'+id);
       if(result.status ===200){
-        window.location.href = '/admin/equipments';
+        window.location.href = '/admin/equipments/';
       }else{
         alert('Error! Try again later!');
       }
@@ -107,18 +105,22 @@ export default function EquipList() {
                           <TableCell align="center">Client</TableCell>
                           <TableCell align="center">Quantity</TableCell>
                           <TableCell align="center">Observations</TableCell>
+                          <TableCell align="center">Seller</TableCell>
                           <TableCell align="center">Register Date</TableCell>
                           <TableCell align="right">Options</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {users.map((row) => (
+                        {equips.map((row) => (
                           <TableRow key={row._id}>
                             <TableCell component="th" scope="row">
-                              {row.username}
+                              {row.model}
                             </TableCell>
-                            <TableCell align="center">{row.email}</TableCell>
-                            <TableCell align="center"><Chip label={getUserLvl(row.user_lvl)} color={getUserLvlLabel(row.user_lvl)}/></TableCell>
+                            <TableCell align="center">{row.brand}</TableCell>
+                            <TableCell align="center">{row.client}</TableCell>
+                            <TableCell align="center">{row.quantity}</TableCell>
+                            <TableCell align="center">{row.observations}</TableCell>
+                            <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                             <ButtonGroup aria-label="outlined primary button group">

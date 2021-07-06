@@ -29,7 +29,7 @@ export default function Routes(){
 
                 {/* Rota Admin */}
                 <Route path="/admin/login" exact component={Login} />
-                <PrivateRoute path="/admin" exact component={Equipments} />
+                <PrivateRoute path="/admin/equipments" exact component={Equipments} />
                 
                 <PrivateRoute path="/admin/equipments" exact component={Equipments} />
                 <PrivateRoute path="/admin/equipments/register" exact component={EquipRegister} />

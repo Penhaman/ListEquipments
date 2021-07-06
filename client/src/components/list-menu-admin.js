@@ -3,7 +3,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import PeopleIcon from '@material-ui/icons/People';
 
@@ -13,12 +12,6 @@ import api from "../services/api";
 
 export const mainListItems = (
   <div>
-    <ListItem button component="a" href="/admin">
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
     <ListItem button component="a" href="/admin/users" >
       <ListItemIcon>
         <PeopleIcon />
@@ -29,7 +22,7 @@ export const mainListItems = (
       <ListItemIcon>
         <SettingsApplicationsIcon />
       </ListItemIcon>
-      <ListItemText primary="Equipamentos" />
+      <ListItemText primary="Equipments" />
     </ListItem>
   </div>
 );

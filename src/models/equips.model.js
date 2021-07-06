@@ -7,9 +7,9 @@ const DataSchema = new mongoose.Schema({
     quantity: Number,
     observations: String,
     salesman: String,
+    status: {type:Number, default:1},
 },{
     timestamps:true,
-    status: {type: String, default: "Em Espera"},
 });
 
 const equips = mongoose.model('equips',DataSchema);

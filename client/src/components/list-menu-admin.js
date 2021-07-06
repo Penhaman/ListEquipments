@@ -18,7 +18,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Users" />
     </ListItem>
-    <ListItem button component="a" href="/admin/equips" >
+    <ListItem button component="a" href="/admin/equipments" >
       <ListItemIcon>
         <SettingsApplicationsIcon />
       </ListItemIcon>

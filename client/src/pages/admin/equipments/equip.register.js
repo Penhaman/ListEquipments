@@ -34,6 +34,7 @@ export default function EquipRegister() {
   const [client, setClient] = useState('');
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
+  const status = "Waiting";
   const [salesman, setSalesman] = useState(getUsername);
 
   async function handleSubmit(){
@@ -44,10 +45,11 @@ export default function EquipRegister() {
       quantity:quantity,
       observations:observations,
       salesman:salesman,
+      status:status,
     }
 
       if(brand!==''&&model!==''&&client!==''&&quantity!==''){
-        const response = await api.post('/api/equipments',data);
+        const response = await api.post('/api/equips',data);
 
         if(response.status===200){
           window.location.href='/admin/equipments'
@@ -112,8 +114,8 @@ export default function EquipRegister() {
                   </Grid>
                   <Grid item xs={12} sm={2}>
                     <TextField
-                      type="quantity"
-                      inputComponent="number"
+                      type="number"
+                      min="1"
                       required
                       id="quantity"
                       name="quantity"

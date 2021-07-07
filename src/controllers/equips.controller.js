@@ -18,7 +18,7 @@ module.exports = {
         res.json(detailEquip);
     },
     async delete(req, res) {
-        const {_id} = req.parms;
+        const {_id} = req.params;
         const deleteEquip = await Equips.findByIdAndDelete({_id});
         return res.json(deleteEquip);
     },

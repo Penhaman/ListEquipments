@@ -34,7 +34,7 @@ export default function EquipRegister() {
   const [client, setClient] = useState('');
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
-  const status = "Waiting";
+  const status = 1;
   const [salesman, setSalesman] = useState(getUsername);
 
   async function handleSubmit(){
@@ -59,7 +59,6 @@ export default function EquipRegister() {
       }else{
         alert('Please fill in every blank!');
       }
-      console.log(salesman);
   }
   
   return (

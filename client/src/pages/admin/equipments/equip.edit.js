@@ -41,9 +41,7 @@ export default function EquipEdit() {
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
   const [status , setStatus] = useState('');
-
   const { idEquip } = useParams();
-
 
   useEffect(() => {
     async function getEquip(){
@@ -105,19 +103,17 @@ export default function EquipEdit() {
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                      required
                       id="client"
                       name="client"
                       label="Client"
                       fullWidth
                       autoComplete="client"
-                      value={client}
+                      defaultValue={client}
                       onChange={e => setClient(e.target.value)}
                     />
                   </Grid>
                   <Grid item xs={12} sm={3}>
                     <TextField
-                      required
                       id="quantity"
                       type="number"
                       min="1"
@@ -144,7 +140,6 @@ export default function EquipEdit() {
                   <FormControl className={classes.formControl}>
                     <InputLabel id="labelStatus">Status</InputLabel>
                     <Select
-                      required
                       labelId="labelStatus"
                       id="status"
                       value={status}

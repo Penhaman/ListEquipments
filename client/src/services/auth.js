@@ -3,6 +3,13 @@ export const ID_USER = '&id_user';
 export const USERNAME = '&username';
 export const USER_LVL = '&user_lvl';
 
+export const BRAND = '&brand';
+export const MODEL = '&model';
+export const CLIENT = '&client';
+export const QUANTITY = '&quantity';
+export const OBSERVATIONS = '&observations';
+export const STATUS = '&status';
+
 export const login = token => { localStorage.setItem(TOKEN_KEY,token); }
 export const logout = () => { localStorage.clear() };
 

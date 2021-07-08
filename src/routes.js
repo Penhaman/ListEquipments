@@ -6,6 +6,7 @@ const Users = require('./controllers/users.controller')
 const Equips = require('./controllers/equips.controller')
 
 routes.get('/',Users.index);
+routes.get('/', Equips.index);
 
 // Routes de Users
 routes.post('/api/users',Users.create);

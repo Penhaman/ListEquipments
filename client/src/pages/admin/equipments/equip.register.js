@@ -35,7 +35,7 @@ export default function EquipRegister() {
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
   const status = 1;
-  const [salesman, setSalesman] = useState(getUsername);
+  const [salesman] = useState(getUsername);
 
   async function handleSubmit(){
     const data = {

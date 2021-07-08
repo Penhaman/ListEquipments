@@ -35,8 +35,6 @@ const useStyles = makeStyles((theme) => ({
 export default function EquipEdit() {
   const classes = useStyles();
 
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
   const [client , setClient] = useState('');
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
@@ -45,34 +43,31 @@ export default function EquipEdit() {
 
   useEffect(() => {
     async function getEquip(){
-      var response = await api.get('/api/equip.details/'+idEquip);
-      setBrand(response.data.brand);
-      setModel(response.data.model);
+      var response = await api.get('/api/equips.details/'+idEquip);
       setClient(response.data.client);
       setQuantity(response.data.quantity);
       setObservations(response.data.observations);
       setStatus(response.data.status);
+      console.log(response.data.client)
     }
-
+    
     getEquip();
-  },[])
+  },[]);
 
   async function handleSubmit(){
 
     const data = {
-      brand:brand,
-      model:model,
       client:client,
       quantity:quantity,
       observations:observations,
       status:status,
-    _id:idEquip}
+      _id:idEquip}
 
       if(client!==''&&quantity!==''&&status!==''){
         const response = await api.put('/api/equips/',data);
 
         if(response.status===200){
-          window.location.href='/admin/equipments'
+          window.location.href='/admin/equipments/'
         }else{
           alert('Error updating the equipment!');
         }
@@ -116,7 +111,6 @@ export default function EquipEdit() {
                     <TextField
                       id="quantity"
                       type="number"
-                      min="1"
                       name="quantity"
                       label="Quantity"
                       fullWidth

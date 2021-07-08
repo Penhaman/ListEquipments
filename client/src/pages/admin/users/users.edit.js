@@ -46,13 +46,11 @@ export default function UsersEdit() {
   useEffect(() => {
     async function getUser(){
       var response = await api.get('/api/users.details/'+idUser);
-      
       setUsername(response.data.username);
       setEmail(response.data.email);
       setPassword(response.data.password);
       setUserLvl(response.data.user_lvl);
     }
-
     getUser();
   },[])
 
@@ -63,7 +61,7 @@ export default function UsersEdit() {
       email:email,
       password:password,
       user_lvl:user_lvl,
-    _id:idUser}
+      _id:idUser}
 
       if(username!==''&&email!==''&&password!==''&&user_lvl!==''){
         const response = await api.put('/api/users/',data);

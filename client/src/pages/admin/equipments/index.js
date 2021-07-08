@@ -115,10 +115,10 @@ export default function EquipList() {
                       <TableBody>
                         {equips.map((row) => (
                           <TableRow key={row._id}>
+                            <TableCell align="center">{row.brand}</TableCell>
                             <TableCell component="th" scope="row">
                               {row.model}
                             </TableCell>
-                            <TableCell align="center">{row.brand}</TableCell>
                             <TableCell align="center">{row.client}</TableCell>
                             <TableCell align="center">{row.quantity}</TableCell>
                             <TableCell align="center">{row.observations}</TableCell>

@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EquipEdit() {
   const classes = useStyles();
-
+  const [brand , setBrand] = useState('');
+  const [model , setModel] = useState('');
   const [client , setClient] = useState('');
   const [quantity , setQuantity] = useState('');
   const [observations , setObservations] = useState('');
@@ -44,11 +45,12 @@ export default function EquipEdit() {
   useEffect(() => {
     async function getEquip(){
       var response = await api.get('/api/equips.details/'+idEquip);
+      setBrand(response.data.brand);
+      setModel(response.data.model);
       setClient(response.data.client);
       setQuantity(response.data.quantity);
       setObservations(response.data.observations);
       setStatus(response.data.status);
-      console.log(response.data.client)
     }
     
     getEquip();
@@ -57,13 +59,15 @@ export default function EquipEdit() {
   async function handleSubmit(){
 
     const data = {
-      client:client,
+      brand: brand,
+      model: model,
+      client: client,
       quantity:quantity,
       observations:observations,
       status:status,
       _id:idEquip}
 
-      if(client!==''&&quantity!==''&&status!==''){
+      if(brand!=='' && model!=='' && client!=='' && quantity!==''&& status!==''){
         const response = await api.put('/api/equips/',data);
 
         if(response.status===200){
@@ -89,21 +93,41 @@ export default function EquipEdit() {
           <Grid container spacing={3}>
             <Grid item sm={12}>
             <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon /> Back</Button>
-            <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/admin/equipments/register'}>
-              <AddIcon />
-              REGISTER
-            </Button>
               <Paper className={classes.paper}>
                 <h2>Equips Update</h2>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={3}>
+                    <TextField
+                      id="brand"
+                      name="brand"
+                      label="Brand"
+                      fullWidth
+                      disabled
+                      autoComplete="brand"
+                      value={brand}
+                      onChange={e => setBrand(e.target.value)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={3}>
+                    <TextField
+                      id="model"
+                      name="model"
+                      label="Model"
+                      fullWidth
+                      disabled
+                      autoComplete="model"
+                      value={model}
+                      onChange={e => setModel(e.target.value)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={3}>
                     <TextField
                       id="client"
                       name="client"
                       label="Client"
                       fullWidth
                       autoComplete="client"
-                      defaultValue={client}
+                      value={client}
                       onChange={e => setClient(e.target.value)}
                     />
                   </Grid>

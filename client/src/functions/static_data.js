@@ -35,7 +35,7 @@ export const getStatus = (value) => {
     return arr[value-1];
 }
 export const getStatusLabel = (value) => {
-    var arr = ['grey', 'blue', 'green'];
+    var arr = ['secondary', 'default', 'primary'];
     return arr[value-1];
 
 }

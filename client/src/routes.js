@@ -23,11 +23,11 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
-                {/* Rota Cliente */}
+                {/* Route Cliente */}
                 <Route path="/" exact component={Login} />
                 <Route path="/equipments/:idEquip" exact component={Equipments} />
 
-                {/* Rota Admin */}
+                {/* Route Admin */}
                 <Route path="/admin/login" exact component={Login} />
                 <PrivateRoute path="/admin/equipments" exact component={Equipments} />
                 

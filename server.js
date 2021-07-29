@@ -31,6 +31,6 @@ app.get('*', (req,res) => {
 });
 
 
-app.listen(port, '0.0.0.0', function(){
+app.listen(port, function(){
     console.log(`Server runing on port ${port}`)
 });

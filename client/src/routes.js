@@ -12,6 +12,11 @@ import Users from './pages/admin/users';
 import UsersEdit from './pages/admin/users/users.edit';
 import UsersRegister from './pages/admin/users/users.register'
 
+//IMPORTS SALES
+import SalesEquipments from './pages/admin/equipments';
+import SalesEquipEdit from './pages/admin/equipments/equip.edit';
+import SalesEquipRegister from './pages/admin/equipments/equip.register'
+
 // IMPORTS CLIENT
 import EquipmentsClient from './pages/client/equipments/equip.details';
 import Login from './pages/admin/login';
@@ -27,10 +32,13 @@ export default function Routes(){
                 <Route path="/" exact component={Login} />
                 <Route path="/equipments/:idEquip" exact component={Equipments} />
 
+                {/* Routes de Vendedores */}
+                <PrivateRoute path="/sales/equipments" exact component={SalesEquipments} />
+                <PrivateRoute path="/sales/equipments/register" exact component={SalesEquipRegister} />
+                <PrivateRoute path="/sales/equipments/edit/:idEquip" exact component={SalesEquipEdit} />
+
                 {/* Route Admin */}
                 <Route path="/admin/login" exact component={Login} />
-                <PrivateRoute path="/admin/equipments" exact component={Equipments} />
-                
                 <PrivateRoute path="/admin/equipments" exact component={Equipments} />
                 <PrivateRoute path="/admin/equipments/register" exact component={EquipRegister} />
                 <PrivateRoute path="/admin/equipments/edit/:idEquip" exact component={EquipEdit} />

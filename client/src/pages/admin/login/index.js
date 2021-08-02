@@ -73,8 +73,12 @@ export default function SignIn() {
                     setIdUser(res.data.id_user);
                     setUsername(res.data.username);
                     setUserLvl(res.data.user_lvl);
-
-                    window.location.href= '/admin/equipments'
+                    if(setUserLvl === 1) {
+                      window.location.href= '/admin/equipments'
+                    } else {
+                      window.location.href= '/sales/equipments'
+                    }
+                    
                 }else if(res.data.status===2){
                     alert('Attention: '+res.data.error);
                 }
@@ -85,6 +89,7 @@ export default function SignIn() {
             }
         })
     }
+    
     function loadSubmit(){
       setLoading(true);
       setTimeout(
@@ -94,9 +99,11 @@ export default function SignIn() {
     }
 
   return (
+    <form>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -109,29 +116,17 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Your email here"
+            label="Email"
             name="email"
             autoComplete="email"
             autoFocus
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          {/* <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Digite sua senha"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-          /> */}
+
 
           <FormControl variant="outlined" style={{width:'100%',marginTop:10}}>
-            <InputLabel htmlFor="campoSenha">Your password here</InputLabel>
+            <InputLabel htmlFor="campoSenha">Password</InputLabel>
             <OutlinedInput
               id="passwordField"
               type={showPassword ? 'text' : 'password'}
@@ -153,6 +148,7 @@ export default function SignIn() {
           </FormControl>
 
           <Button
+            type="submit"
             fullWidth
             variant="contained"
             color="primary"
@@ -162,10 +158,13 @@ export default function SignIn() {
           >
             {loading?<CircularProgress />:"LOGIN"}
           </Button>
+          
+          
       </div>
       <Box mt={8}>
         <Copyright />
       </Box>
     </Container>
+    </form>
   );
 }

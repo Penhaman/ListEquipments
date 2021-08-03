@@ -1,11 +1,11 @@
 export const getUserLvl = (value) => {
 
-    var arr = ['Admin','Manager','Public'];
+    var arr = ['Administrator','Sales'];
     return arr[value-1];
 };
 export const getUserLvlLabel = (value) => {
     
-    var arr = ['primary','default','secondary'];
+    var arr = ['primary','secondary'];
     return arr[value-1];
 };
 
@@ -14,7 +14,7 @@ export const getStatus = (value) => {
     return arr[value-1];
 }
 export const getStatusLabel = (value) => {
-    var arr = ['secondary', 'default', 'primary'];
+    var arr = ['default', 'primary', 'secondary'];
     return arr[value-1];
 
 }

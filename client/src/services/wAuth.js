@@ -39,7 +39,7 @@ export default function WAuth ({ component: Component, ...rest }){
         loading?<LinearProgress style={{width:'50%', margin:'80px auto'}}  />:<Route { ...rest}
         render={props => !redirect?(
             <Component {...props } />
-        ):<Redirect to={{pathname: "/admin/login",state:{ from: props.location}}} />
+        ):<Redirect to={{pathname: "/client/login",state:{ from: props.location}}} />
         } />
     )
 }

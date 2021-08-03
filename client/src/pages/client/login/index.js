@@ -17,10 +17,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
 import api from '../../../services/api';
 
-import {setUsername, login, setIdUser, setUserLvl } from '../../../services/auth';
+import {setUsername, login, setIdUser, getUserLvl, setUserLvl } from '../../../services/auth';
 
 function Copyright() {
   return (
@@ -73,7 +72,7 @@ export default function SignIn() {
                     setIdUser(res.data.id_user);
                     setUsername(res.data.username);
                     setUserLvl(res.data.user_lvl);
-                    if(setUserLvl === 1) {
+                    if(res.data.user_lvl == '1') {
                       window.location.href= '/admin/equipments'
                     } else {
                       window.location.href= '/sales/equipments'

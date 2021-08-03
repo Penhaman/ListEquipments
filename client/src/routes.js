@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import {  BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 
@@ -13,13 +14,13 @@ import UsersEdit from './pages/admin/users/users.edit';
 import UsersRegister from './pages/admin/users/users.register'
 
 //IMPORTS SALES
-import SalesEquipments from './pages/admin/equipments';
-import SalesEquipEdit from './pages/admin/equipments/equip.edit';
-import SalesEquipRegister from './pages/admin/equipments/equip.register'
+import SalesEquipments from './pages/sales/equipments';
+import SalesEquipEdit from './pages/sales/equipments/equip.edit';
+import SalesEquipRegister from './pages/sales/equipments/equip.register'
 
 // IMPORTS CLIENT
-import EquipmentsClient from './pages/client/equipments/equip.details';
-import Login from './pages/admin/login';
+import EquipmentsClient from './pages/client/equipments';
+import Login from './pages/client/login';
 
 import PrivateRoute from './services/wAuth';
 
@@ -29,8 +30,8 @@ export default function Routes(){
         <BrowserRouter>
             <Switch>
                 {/* Route Cliente */}
-                <Route path="/" exact component={Login} />
-                <Route path="/equipments/:idEquip" exact component={Equipments} />
+                <Route path="/client/login" exact component={Login} />
+                <Route path="/client/equipments" exact component={EquipmentsClient} />
 
                 {/* Routes de Vendedores */}
                 <PrivateRoute path="/sales/equipments" exact component={SalesEquipments} />
@@ -38,7 +39,6 @@ export default function Routes(){
                 <PrivateRoute path="/sales/equipments/edit/:idEquip" exact component={SalesEquipEdit} />
 
                 {/* Route Admin */}
-                <Route path="/admin/login" exact component={Login} />
                 <PrivateRoute path="/admin/equipments" exact component={Equipments} />
                 <PrivateRoute path="/admin/equipments/register" exact component={EquipRegister} />
                 <PrivateRoute path="/admin/equipments/edit/:idEquip" exact component={EquipEdit} />

@@ -79,13 +79,6 @@ export default function SalesEquipList() {
     }
   }
   
-    const orderStatus = equips.status;
-    function DisableEdit(orderStatus){
-      if(orderStatus === 1) {
-       document.getElementById("editBtn").remove();
-      }
-    }
-  
   return (
     <div className={classes.root}>
       
@@ -132,7 +125,7 @@ export default function SalesEquipList() {
                             <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
-                            <TableCell align="right">{DisableEdit(row.status)}
+                            <TableCell align="right">
                               <ButtonGroup id = "editBtn" aria-label="outlined primary button group">
                                 <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
                                 <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>

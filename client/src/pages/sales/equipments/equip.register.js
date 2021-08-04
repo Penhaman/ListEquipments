@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import MenuAdmin from '../../../components/menu-admin';
+import MenuAdmin from '../../../components/menu-sales';
 import Footer from '../../../components/footer-admin';
 
 import Button from '@material-ui/core/Button';
@@ -52,7 +52,7 @@ export default function SalesEquipRegister() {
         const response = await api.post('/api/equips',data);
 
         if(response.status===200){
-          window.location.href='/admin/equipments'
+          window.location.href='/sales/equipments'
         }else{
           alert('Error registering equipment!');
         }
@@ -70,7 +70,7 @@ export default function SalesEquipRegister() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-              <Button style={{marginBottom:10}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon />  Back</Button>
+              <Button style={{marginBottom:10}} variant="contained" href={'/sales/equipments'}><ArrowBackIcon />  Back</Button>
               <Paper className={classes.paper}>
                 <h2>Add Equipment</h2>
                 <Grid container spacing={3}>

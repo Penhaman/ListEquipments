@@ -8,9 +8,9 @@
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \" npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "Joao Pereira",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -25,5 +25,13 @@
   "devDependencies": {
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Penhaman/equipamentos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Penhaman/equipamentos/issues"
+  },
+  "homepage": "https://github.com/Penhaman/equipamentos#readme"
 }

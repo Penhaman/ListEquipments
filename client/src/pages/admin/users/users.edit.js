@@ -130,9 +130,8 @@ export default function UsersEdit() {
                       value={user_lvl}
                       onChange={e => setUserLvl(e.target.value)}
                     >
-                      <MenuItem value={1}>Admin</MenuItem>
-                      <MenuItem value={2}>Manager</MenuItem>
-                      <MenuItem value={3}>Public</MenuItem>
+                      <MenuItem value={1}>Administrator</MenuItem>
+                      <MenuItem value={2}>Sales</MenuItem>
                     </Select>
                   </FormControl>
                   </Grid>

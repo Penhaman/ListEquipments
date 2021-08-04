@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import MenuAdmin from '../../../components/menu-admin';
+import MenuAdmin from '../../../components/menu-sales';
 import Footer from '../../../components/footer-admin';
 
 import FormControl from '@material-ui/core/FormControl';
@@ -92,7 +92,7 @@ export default function SalesEquipEdit() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-            <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon /> Back</Button>
+            <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/sales/equipments'}><ArrowBackIcon /> Back</Button>
               <Paper className={classes.paper}>
                 <h2>Equips Update</h2>
                 <Grid container spacing={3}>

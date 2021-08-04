@@ -82,10 +82,12 @@ export default function SalesEquipList() {
   function DisableEdit() {
     const orderStatus = equips.status;
     if(orderStatus === 1) {
-      return <ButtonGroup aria-label="outlined primary button group">
+      return (
+       <ButtonGroup aria-label="outlined primary button group">
         <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
         <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
     </ButtonGroup>
+      )
     }
   }
   

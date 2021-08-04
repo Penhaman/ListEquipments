@@ -15,28 +15,34 @@
      "density": "1.0"
     },
     {
-     "src": "\/android-icon-72x72.png",
+     "src": "\/apple-touch-icon.png",
      "sizes": "72x72",
      "type": "image\/png",
      "density": "1.5"
     },
     {
-     "src": "\/android-icon-96x96.png",
-     "sizes": "96x96",
+     "src": "\/favicon-16x16.png",
+     "sizes": "16x16",
      "type": "image\/png",
      "density": "2.0"
     },
     {
-     "src": "\/android-icon-144x144.png",
-     "sizes": "144x144",
+     "src": "\/favicon-32x132.png",
+     "sizes": "32x32",
      "type": "image\/png",
      "density": "3.0"
     },
     {
-     "src": "\/android-icon-192x192.png",
-     "sizes": "192x192",
+     "src": "\/mstile-150x150.png",
+     "sizes": "150x150",
      "type": "image\/png",
      "density": "4.0"
+    },
+    {
+      "src": "\/safari-pinned-tab.svg",
+      "sizes": "150x150",
+      "type": "image\/svg",
+      "density": "4.0"
     }
    ],
   "start_url": ".",

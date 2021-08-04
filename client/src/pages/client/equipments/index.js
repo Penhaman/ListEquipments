@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-import MenuAdmin from '../../../components/menu-sales';
+import MenuAdmin from '../../../components/menu-public';
 import Footer from '../../../components/footer-admin';
 
 import Table from '@material-ui/core/Table';
@@ -17,14 +17,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import api from '../../../services/api';
 
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Chip from '@material-ui/core/Chip';
 import {getStatus,getStatusLabel} from '../../../functions/static_data'
-import AddIcon from '@material-ui/icons/Add';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
-import ClearIcon from '@material-ui/icons/Clear';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,17 +63,6 @@ export default function EquipmentsClient() {
     }
     loadEquips();
   },[]);
-
-  async function handleDelete(id){
-    if(window.confirm("Do you want to delete this equipment?")){
-      var result = await api.delete('/api/equips/'+ id);
-      if(result.status === 200){
-        window.location.href = '/client/equipments/';
-      }else{
-        alert('Error! Try again later!');
-      }
-    }
-  }
   
   return (
     <div className={classes.root}>
@@ -88,16 +73,12 @@ export default function EquipmentsClient() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-            <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/client/equipments/register'}>
-              <AddIcon />
-              ADD
-            </Button>
             <Paper className={classes.paper}>
                 <h2>Equipments List</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                   <TableContainer component={Paper}>
-                    {loading?(<LinearProgress style={{width:'50%', margin:'20px auto'}}  />):(
+                    {loading?(<LinearProgress style={{width:'60%', margin:'20px auto'}}  />):(
                     <Table className={classes.table} aria-label="simple table">
                       <TableHead>
                         <TableRow>
@@ -109,7 +90,6 @@ export default function EquipmentsClient() {
                           <TableCell align="center">Status</TableCell>
                           <TableCell align="center">Seller</TableCell>
                           <TableCell align="center">Register Date</TableCell>
-                          <TableCell align="right">Options</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -125,12 +105,6 @@ export default function EquipmentsClient() {
                             <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
-                            <TableCell align="right">
-                            <ButtonGroup aria-label="outlined primary button group">
-                              <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
-                              <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
-                            </ButtonGroup>
-                            </TableCell>
                           </TableRow>
                         ))}
                       </TableBody>

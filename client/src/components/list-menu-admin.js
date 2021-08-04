@@ -44,7 +44,7 @@ async function confirmExit(){
     const response = await api.get("/api/users/destroytoken",{headers:{token: getToken()}});
     if(response.status===200){
       logout();
-      window.location.href = '/client/login'
+      window.location.href = '/client/equipments'
     }else{
       alert("Couldn't logout!");
     }

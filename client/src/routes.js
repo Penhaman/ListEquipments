@@ -3,6 +3,9 @@ import React from 'react';
 
 import {  BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
+// IMPORTS CLIENT
+import EquipmentsClient from './pages/client/equipments';
+import Login from './pages/client/login';
 
 // IMPORTS ADMIN
 import Equipments from './pages/admin/equipments';
@@ -18,9 +21,7 @@ import SalesEquipments from './pages/sales/equipments';
 import SalesEquipEdit from './pages/sales/equipments/equip.edit';
 import SalesEquipRegister from './pages/sales/equipments/equip.register'
 
-// IMPORTS CLIENT
-import EquipmentsClient from './pages/client/equipments';
-import Login from './pages/client/login';
+
 
 import PrivateRoute from './services/wAuth';
 
@@ -30,8 +31,8 @@ export default function Routes(){
         <BrowserRouter>
             <Switch>
                 {/* Route Cliente */}
+                <Route path="/" exact component={EquipmentsClient} />
                 <Route path="/client/login" exact component={Login} />
-                <Route path="/client/equipments" exact component={EquipmentsClient} />
 
                 {/* Routes de Vendedores */}
                 <PrivateRoute path="/sales/equipments" exact component={SalesEquipments} />

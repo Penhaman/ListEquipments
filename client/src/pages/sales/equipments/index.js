@@ -78,6 +78,15 @@ export default function SalesEquipList() {
       }
     }
   }
+  /*const orderStatus = equips.status;
+  console.log(orderStatus);
+  function underPrep(orderStatus){
+    if(orderStatus!=1) {
+      true;
+    } else {
+      false;
+    }
+  }*/
   
   return (
     <div className={classes.root}>
@@ -126,7 +135,7 @@ export default function SalesEquipList() {
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
-                              <ButtonGroup id = "editBtn" aria-label="outlined primary button group">
+                              <ButtonGroup aria-label="outlined primary button group">
                                 <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
                                 <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                               </ButtonGroup>

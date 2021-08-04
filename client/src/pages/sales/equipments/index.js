@@ -79,6 +79,16 @@ export default function SalesEquipList() {
     }
   }
   
+  function DisableEdit() {
+    const orderStatus = equips.status;
+    if(orderStatus === 1) {
+      return <ButtonGroup aria-label="outlined primary button group">
+        <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
+        <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
+    </ButtonGroup>
+    }
+  }
+  
   return (
     <div className={classes.root}>
       
@@ -126,10 +136,7 @@ export default function SalesEquipList() {
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
-                            <ButtonGroup aria-label="outlined primary button group">
-                              <Button variant="contained" color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
-                              <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
-                            </ButtonGroup>
+                              <DisableEdit />
                             </TableCell>
                           </TableRow>
                         ))}

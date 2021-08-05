@@ -82,7 +82,7 @@ export default function EquipList() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'EQUIPMENTS'}/>
+      <MenuAdmin title={'EQUIPAMENTOS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>

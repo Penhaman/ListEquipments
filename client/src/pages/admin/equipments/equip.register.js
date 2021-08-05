@@ -54,32 +54,32 @@ export default function EquipRegister() {
         if(response.status===200){
           window.location.href='/admin/equipments'
         }else{
-          alert('Error registering equipment!');
+          alert('Erro ao registar o equipamento!');
         }
       }else{
-        alert('Please fill in every blank!');
+        alert('Por favor preencher campos!');
       }
   }
   
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'EQUIPMENTS'}/>
+      <MenuAdmin title={'EQUIPAMENTOS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-              <Button style={{marginBottom:10}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon />  Back</Button>
+              <Button style={{marginBottom:10}} variant="contained" href={'/admin/equipments'}><ArrowBackIcon />  Voltar</Button>
               <Paper className={classes.paper}>
-                <h2>Add Equipment</h2>
+                <h2>Adicionar Equipamento</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={4}>
                     <TextField
                       required
                       id="brand"
                       name="brand"
-                      label="Brand"
+                      label="Marca"
                       fullWidth
                       autoComplete="brand"
                       value={brand}
@@ -91,7 +91,7 @@ export default function EquipRegister() {
                       required
                       id="model"
                       name="model"
-                      label="Model"
+                      label="Modelo"
                       fullWidth
                       autoComplete="model"
                       value={model}
@@ -104,7 +104,7 @@ export default function EquipRegister() {
                       required
                       id="client"
                       name="client"
-                      label="Client"
+                      label="Cliente"
                       fullWidth
                       autoComplete="client"
                       value={client}
@@ -118,7 +118,7 @@ export default function EquipRegister() {
                       required
                       id="quantity"
                       name="quantity"
-                      label="Quantity"
+                      label="Quantidade"
                       fullWidth
                       autoComplete="quantity"
                       value={quantity}
@@ -130,7 +130,7 @@ export default function EquipRegister() {
                       type="observations"
                       id="observations"
                       name="observations"
-                      label="Observations"
+                      label="Observações"
                       fullWidth
                       autoComplete="observations"
                       value={observations}
@@ -139,7 +139,7 @@ export default function EquipRegister() {
                   </Grid>
                   <Grid item xs={12} sm={12}>
                   <Button variant="contained" onClick={handleSubmit} className={classes.btnSuccess}>
-                  <SaveIcon />  Save
+                  <SaveIcon />  Guardar
                   </Button>
                   </Grid>
                 </Grid>

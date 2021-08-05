@@ -51,10 +51,10 @@ export default function UserRegister() {
         if(response.status===200){
           window.location.href='/admin/users'
         }else{
-          alert('Error registering user!');
+          alert('Erro no registo!');
         }
       }else{
-        alert('Please fill in every blank!');
+        alert('Por favor, preencher campos!');
       }
 
      
@@ -64,7 +64,7 @@ export default function UserRegister() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'USERS'}/>
+      <MenuAdmin title={'UTILIZADORES'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -72,14 +72,14 @@ export default function UserRegister() {
             <Grid item sm={12}>
               <Button style={{marginBottom:10}} variant="contained" href={'/admin/users'}><ArrowBackIcon />  Voltar</Button>
               <Paper className={classes.paper}>
-                <h2>Cadastro de Usuários</h2>
+                <h2>Registo de utilizadores</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                     <TextField
                       required
                       id="username"
                       name="username"
-                      label="Name"
+                      label="Nome"
                       fullWidth
                       autoComplete="username"
                       value={username}
@@ -108,8 +108,8 @@ export default function UserRegister() {
                       value={user_lvl}
                       onChange={e => setUserLvl(e.target.value)}
                     >
-                      <MenuItem value={1}>Administrator</MenuItem>
-                      <MenuItem value={2}>Sales</MenuItem>
+                      <MenuItem value={1}>Administrador</MenuItem>
+                      <MenuItem value={2}>Comercial</MenuItem>
                       
                     </Select>
                   </FormControl>
@@ -129,7 +129,7 @@ export default function UserRegister() {
                   </Grid>
                   <Grid item xs={12} sm={12}>
                   <Button variant="contained" onClick={handleSubmit} className={classes.btnSuccess}>
-                  <SaveIcon />  Salvar
+                  <SaveIcon />  Guardar
                   </Button>
                   </Grid>
                 </Grid>

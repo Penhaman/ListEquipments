@@ -1,6 +1,6 @@
 export const getUserLvl = (value) => {
 
-    var arr = ['Administrator','Sales'];
+    var arr = ['Administrador','Comercial'];
     return arr[value-1];
 };
 export const getUserLvlLabel = (value) => {
@@ -10,7 +10,7 @@ export const getUserLvlLabel = (value) => {
 };
 
 export const getStatus = (value) => {
-    var arr = ['Waiting..', "In Progress..", "Completed"];
+    var arr = ['Pendente', "Em Progresso..", "Completo"];
     return arr[value-1];
 }
 export const getStatusLabel = (value) => {

@@ -69,29 +69,20 @@ export default function SalesEquipList() {
   },[]);
 
   async function handleDelete(id){
-    if(window.confirm("Do you want to delete this equipment?")){
+    if(window.confirm("Deseja eliminar este equipamento?")){
       var result = await api.delete('/api/equips/'+ id);
       if(result.status === 200){
         window.location.href = '/sales/equipments/';
       }else{
-        alert('Error! Try again later!');
+        alert('Erro! Tente novamente!');
       }
     }
   }
-  /*const orderStatus = equips.status;
-  console.log(orderStatus);
-  function underPrep(orderStatus){
-    if(orderStatus!=1) {
-      true;
-    } else {
-      false;
-    }
-  }*/
   
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'EQUIPMENTS'}/>
+      <MenuAdmin title={'EQUIPAMENTOS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -99,10 +90,10 @@ export default function SalesEquipList() {
             <Grid item sm={12}>
             <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/sales/equipments/register'}>
               <AddIcon />
-              ADD
+              ADICIONAR
             </Button>
             <Paper className={classes.paper}>
-                <h2>Equipments List</h2>
+                <h2>Lista de Equipamentos</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                   <TableContainer component={Paper}>
@@ -110,15 +101,15 @@ export default function SalesEquipList() {
                     <Table className={classes.table} aria-label="simple table">
                       <TableHead>
                         <TableRow>
-                          <TableCell align="center">Brand</TableCell>
-                          <TableCell align="center">Model</TableCell>
-                          <TableCell align="center">Client</TableCell>
-                          <TableCell align="center">Quantity</TableCell>
-                          <TableCell align="center">Observations</TableCell>
+                          <TableCell align="center">Marca</TableCell>
+                          <TableCell align="center">Modelo</TableCell>
+                          <TableCell align="center">Cliente</TableCell>
+                          <TableCell align="center">Quantidade</TableCell>
+                          <TableCell align="center">Observações</TableCell>
                           <TableCell align="center">Status</TableCell>
-                          <TableCell align="center">Seller</TableCell>
-                          <TableCell align="center">Register Date</TableCell>
-                          <TableCell align="right">Options</TableCell>
+                          <TableCell align="center">Vendedor</TableCell>
+                          <TableCell align="center">Data de Registo</TableCell>
+                          <TableCell align="right">Opções</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -136,7 +127,7 @@ export default function SalesEquipList() {
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                               <ButtonGroup aria-label="outlined primary button group">
-                                <Button variant="contained" disabled={row.status!=1} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
+                                <Button variant="contained" disabled={row.status!=1} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
                                 <Button variant="contained" disabled={row.status!=1} color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                               </ButtonGroup>
                             </TableCell>

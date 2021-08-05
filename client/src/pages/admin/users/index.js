@@ -69,12 +69,12 @@ export default function UsersList() {
   },[]);
 
   async function handleDelete(id){
-    if(window.confirm("Do you want to delete this user?")){
+    if(window.confirm("Deseja eliminar este utilizador?")){
       var result = await api.delete('/api/users/'+id);
       if(result.status ===200){
         window.location.href = '/admin/users';
       }else{
-        alert('Error! Try again later!');
+        alert('Erro! Tente novamente!');
       }
     }
   }
@@ -82,7 +82,7 @@ export default function UsersList() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'USERS'}/>
+      <MenuAdmin title={'UTILIZADORES'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -90,10 +90,10 @@ export default function UsersList() {
             <Grid item sm={12}>
             <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/admin/users/register'}>
               <AddIcon />
-              Register
+              Registar
             </Button>
             <Paper className={classes.paper}>
-                <h2>Users List</h2>
+                <h2>Lista de utilizadores</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                   <TableContainer component={Paper}>
@@ -103,9 +103,9 @@ export default function UsersList() {
                         <TableRow>
                           <TableCell>Nome</TableCell>
                           <TableCell align="center">Email</TableCell>
-                          <TableCell align="center">Level</TableCell>
-                          <TableCell align="center">Register Date</TableCell>
-                          <TableCell align="right">Options</TableCell>
+                          <TableCell align="center">Nível</TableCell>
+                          <TableCell align="center">Data de Registo</TableCell>
+                          <TableCell align="right">Opções</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -119,7 +119,7 @@ export default function UsersList() {
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                             <ButtonGroup aria-label="outlined primary button group">
-                              <Button variant="contained" color="primary" href={'/admin/users/edit/'+row._id}><AutorenewIcon /> Update</Button>
+                              <Button variant="contained" color="primary" href={'/admin/users/edit/'+row._id}><AutorenewIcon /> Editar</Button>
                               <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                             </ButtonGroup>
                             </TableCell>

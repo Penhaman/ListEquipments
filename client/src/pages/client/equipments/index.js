@@ -67,14 +67,14 @@ export default function EquipmentsClient() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'EQUIPMENTS'}/>
+      <MenuAdmin title={'EQUIPAMENTOS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
             <Paper className={classes.paper}>
-                <h2>Equipments List</h2>
+                <h2>Lista de Equipamentos</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                   <TableContainer component={Paper}>
@@ -82,14 +82,14 @@ export default function EquipmentsClient() {
                     <Table className={classes.table} aria-label="simple table">
                       <TableHead>
                         <TableRow>
-                          <TableCell align="center">Brand</TableCell>
-                          <TableCell align="center">Model</TableCell>
-                          <TableCell align="center">Client</TableCell>
-                          <TableCell align="center">Quantity</TableCell>
-                          <TableCell align="center">Observations</TableCell>
+                          <TableCell align="center">Marca</TableCell>
+                          <TableCell align="center">Modelo</TableCell>
+                          <TableCell align="center">Cliente</TableCell>
+                          <TableCell align="center">Quantidade</TableCell>
+                          <TableCell align="center">Observações</TableCell>
                           <TableCell align="center">Status</TableCell>
-                          <TableCell align="center">Seller</TableCell>
-                          <TableCell align="center">Register Date</TableCell>
+                          <TableCell align="center">Vendedor</TableCell>
+                          <TableCell align="center">Data de Registo</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>

@@ -46,13 +46,13 @@ module.exports = {
                 console.log(err);
                 res.status(200).json({error: "Server error, try again!"});
             }else if (!user){
-                res.status(200).json({status:2, error: 'Email not found!'});
+                res.status(200).json({status:2, error: 'Email não encontrado!'});
             }else{
                 user.isCorrectPassword(password, async function (err, same){
                     if(err){
                         res.status(200).json({error: "Server error, try again!"});
                     }else if(!same){
-                        res.status(200).json({status:2, error: "Wrong password!"});
+                        res.status(200).json({status:2, error: "Password incorreta!"});
                     }else{
                         const payload = { email };
                         const token = jwt.sign(payload, secret, {

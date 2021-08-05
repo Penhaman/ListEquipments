@@ -16,37 +16,37 @@ export const mainListItems = (
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Users" />
+      <ListItemText primary="Utilizadores" />
     </ListItem>
     <ListItem button component="a" href="/admin/equipments" >
       <ListItemIcon>
         <SettingsApplicationsIcon />
       </ListItemIcon>
-      <ListItemText primary="Equipments" />
+      <ListItemText primary="Equipamentos" />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Options</ListSubheader>
+    <ListSubheader inset>Opções</ListSubheader>
     <ListItem button onClick={confirmExit}>
       <ListItemIcon>
         <ExitToApp />
       </ListItemIcon>
-      <ListItemText primary="Exit" />
+      <ListItemText primary="Sair" />
     </ListItem>
   </div>
 );
 
 async function confirmExit(){
-  if(window.confirm("Do you really wish to exit?")){
+  if(window.confirm("Deseja fazer logout?")){
     const response = await api.get("/api/users/destroytoken",{headers:{token: getToken()}});
     if(response.status===200){
       logout();
       window.location.href = '/'
     }else{
-      alert("Couldn't logout!");
+      alert("Erro de logout!");
     }
   }
 }

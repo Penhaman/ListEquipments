@@ -72,10 +72,10 @@ export default function EquipEdit() {
         if(response.status===200){
           window.location.href='/admin/equipments/'
         }else{
-          alert('Error updating the equipment!');
+          alert('Erro a atualizar o equipamento!');
         }
       }else{
-        alert('Please fill in every blank!');
+        alert('Por favor preencher campos obrigatórios!');
       }
 
      
@@ -85,7 +85,7 @@ export default function EquipEdit() {
   return (
     <div className={classes.root}>
       
-      <MenuAdmin title={'EQUIPMENTS'}/>
+      <MenuAdmin title={'EQUIPAMENTOS'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -99,7 +99,7 @@ export default function EquipEdit() {
                     <TextField
                       id="brand"
                       name="brand"
-                      label="Brand"
+                      label="Marca"
                       fullWidth
                       disabled
                       autoComplete="brand"
@@ -111,7 +111,7 @@ export default function EquipEdit() {
                     <TextField
                       id="model"
                       name="model"
-                      label="Model"
+                      label="Modelo"
                       fullWidth
                       disabled
                       autoComplete="model"
@@ -123,7 +123,7 @@ export default function EquipEdit() {
                     <TextField
                       id="client"
                       name="client"
-                      label="Client"
+                      label="Cliente"
                       fullWidth
                       autoComplete="client"
                       value={client}
@@ -135,7 +135,7 @@ export default function EquipEdit() {
                       id="quantity"
                       type="number"
                       name="quantity"
-                      label="Quantity"
+                      label="Quantidade"
                       fullWidth
                       autoComplete="quantity"
                       value={quantity}
@@ -146,7 +146,7 @@ export default function EquipEdit() {
                     <TextField
                       id="observations"
                       name="observations"
-                      label="Observations"
+                      label="Observações"
                       fullWidth
                       autoComplete="observations"
                       value={observations}
@@ -162,15 +162,15 @@ export default function EquipEdit() {
                       value={status}
                       onChange={e => setStatus(e.target.value)}
                     >
-                      <MenuItem value={1}>Waiting</MenuItem>
-                      <MenuItem value={2}>In Progress</MenuItem>
-                      <MenuItem value={3}>Completed</MenuItem>
+                      <MenuItem value={1}>Pendente</MenuItem>
+                      <MenuItem value={2}>Em Progresso</MenuItem>
+                      <MenuItem value={3}>Completo</MenuItem>
                     </Select>
                   </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={12}>
                   <Button variant="contained"  onClick={handleSubmit} className={classes.btnSuccess}>
-                    <SaveIcon /> Save
+                    <SaveIcon /> Guardar
                   </Button>
                   </Grid>
                 </Grid>

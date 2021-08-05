@@ -69,12 +69,12 @@ export default function EquipList() {
   },[]);
 
   async function handleDelete(id){
-    if(window.confirm("Do you want to delete this equipment?")){
+    if(window.confirm("Deseja eliminar este equipamento?")){
       var result = await api.delete('/api/equips/'+ id);
       if(result.status === 200){
         window.location.href = '/admin/equipments/';
       }else{
-        alert('Error! Try again later!');
+        alert('Erro! Tente de novo!');
       }
     }
   }
@@ -90,10 +90,10 @@ export default function EquipList() {
             <Grid item sm={12}>
             <Button style={{marginBottom:10}} variant="contained" color="primary" href={'/admin/equipments/register'}>
               <AddIcon />
-              ADD
+              Adicionar
             </Button>
             <Paper className={classes.paper}>
-                <h2>Equipments List</h2>
+                <h2>Lista de Equipamentos</h2>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={12}>
                   <TableContainer component={Paper}>
@@ -101,15 +101,15 @@ export default function EquipList() {
                     <Table className={classes.table} aria-label="simple table">
                       <TableHead>
                         <TableRow>
-                          <TableCell align="center">Brand</TableCell>
-                          <TableCell align="center">Model</TableCell>
-                          <TableCell align="center">Client</TableCell>
-                          <TableCell align="center">Quantity</TableCell>
-                          <TableCell align="center">Observations</TableCell>
+                          <TableCell align="center">Marca</TableCell>
+                          <TableCell align="center">Modeli</TableCell>
+                          <TableCell align="center">Cliente</TableCell>
+                          <TableCell align="center">Quantidade</TableCell>
+                          <TableCell align="center">Observações</TableCell>
                           <TableCell align="center">Status</TableCell>
-                          <TableCell align="center">Seller</TableCell>
-                          <TableCell align="center">Register Date</TableCell>
-                          <TableCell align="right">Options</TableCell>
+                          <TableCell align="center">Vendedor</TableCell>
+                          <TableCell align="center">Data de Registo</TableCell>
+                          <TableCell align="right">Opções</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -127,7 +127,7 @@ export default function EquipList() {
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                             <ButtonGroup aria-label="outlined primary button group">
-                              <Button variant="contained" color="primary" href={'/admin/equipments/edit/'+row._id}><AutorenewIcon /> Update</Button>
+                              <Button variant="contained" color="primary" href={'/admin/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
                               <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                             </ButtonGroup>
                             </TableCell>

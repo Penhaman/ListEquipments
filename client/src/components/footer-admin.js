@@ -7,7 +7,7 @@ export default function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/jo%C3%A3o-pereira-11496872/" target="blank">
+      <Link color="inherit" href="#" target="blank">
         João Pereira
         {' '}
       </Link>

@@ -72,7 +72,7 @@ export default function SignIn() {
                     setIdUser(res.data.id_user);
                     setUsername(res.data.username);
                     setUserLvl(res.data.user_lvl);
-                    if(res.data.user_lvl === '1') {
+                    if(res.data.user_lvl === 1) {
                       window.location.href= '/admin/equipments'
                     } else {
                       window.location.href= '/sales/equipments'

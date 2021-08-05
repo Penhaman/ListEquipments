@@ -93,7 +93,7 @@ export default function SalesEquipEdit() {
             <Grid item sm={12}>
             <Button style={{marginBottom:10,marginRight:5}} variant="contained" href={'/sales/equipments'}><ArrowBackIcon /> Voltar</Button>
               <Paper className={classes.paper}>
-                <h2>Equips Update</h2>
+                <h2>Editar Equipamento</h2>
                 <Grid container spacing={3}>
                 <Grid item xs={12} sm={3}>
                     <TextField

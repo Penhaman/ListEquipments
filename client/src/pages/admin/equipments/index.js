@@ -109,7 +109,7 @@ export default function EquipList() {
                           <TableCell align="center">Status</TableCell>
                           <TableCell align="center">Vendedor</TableCell>
                           <TableCell align="center">Data de Registo</TableCell>
-                          <TableCell align="right">Opções</TableCell>
+                          <TableCell align="center">Opções</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>

@@ -10,7 +10,7 @@ export const getUserLvlLabel = (value) => {
 };
 
 export const getStatus = (value) => {
-    var arr = ['Pendente', "Em Progresso..", "Completo"];
+    var arr = ['Pendente', "Em Progresso..", "Completo", "Para Venda"];
     return arr[value-1];
 }
 export const getStatusLabel = (value) => {

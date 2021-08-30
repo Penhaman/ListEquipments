@@ -94,7 +94,7 @@ export default function EquipmentsClient() {
                       </TableHead>
                       <TableBody>
                         {equips.map((row) => (
-                          <TableRow key={row._id}>
+                          <TableRow key={row._id}  style={row.status==4 ? {backgroundColor: '#C2F784'} : {}}>
                             <TableCell align="center">{row.brand}</TableCell>
                             <TableCell component="th" scope="row">
                               {row.model}

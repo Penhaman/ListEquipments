@@ -14,7 +14,7 @@ export const getStatus = (value) => {
     return arr[value-1];
 }
 export const getStatusLabel = (value) => {
-    var arr = ['default', 'primary', 'secondary'];
+    var arr = ['default', 'primary', 'secondary', 'primary'];
     return arr[value-1];
 
 }

@@ -26,6 +26,7 @@ import AddIcon from '@material-ui/icons/Add';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import ClearIcon from '@material-ui/icons/Clear';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -55,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EquipList() {
   const classes = useStyles();
-
   const [equips, setEquips] = useState([]);
   const [ loading, setLoading ] = useState(true);
 
@@ -122,7 +122,7 @@ export default function EquipList() {
                             <TableCell align="center">{row.client}</TableCell>
                             <TableCell align="center">{row.quantity}</TableCell>
                             <TableCell align="center">{row.observations}</TableCell>
-                            <TableCell align="center" ><Chip label={getStatus(row.status)} style={row.status!=4 ? getStatusLabel(row.status) : {backgroundColor: 'green'} }/></TableCell>
+                            <TableCell align="center" ><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">

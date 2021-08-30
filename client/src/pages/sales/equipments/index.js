@@ -127,7 +127,7 @@ export default function SalesEquipList() {
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                               <ButtonGroup aria-label="outlined primary button group">
-                                <Button variant="contained" disabled={row.status==2} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
+                                <Button variant="contained" disabled={row.status!=1 && row.status!=4} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
                                 <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                               </ButtonGroup>
                             </TableCell>

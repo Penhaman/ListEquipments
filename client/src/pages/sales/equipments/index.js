@@ -122,7 +122,7 @@ export default function SalesEquipList() {
                             <TableCell align="center">{row.client}</TableCell>
                             <TableCell align="center">{row.quantity}</TableCell>
                             <TableCell align="center">{row.observations}</TableCell>
-                            <TableCell align="center"><Chip label={getStatus(row.status)} color={((row.status!=4) ? getStatusLabel(row.status) : 'red')}/></TableCell>
+                            <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">

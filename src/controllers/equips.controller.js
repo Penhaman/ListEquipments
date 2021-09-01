@@ -2,7 +2,7 @@ const Equips = require('../models/equips.model');
 
 module.exports = {
     async index(req,res){
-        const listEquip = await Equips.find().sort({createdAt: -1});
+        const listEquip = await Equips.find().sort({status: 'ascending', createdAt: -1});
         res.json(listEquip);
     },
     async create(req, res){

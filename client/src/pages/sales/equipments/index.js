@@ -114,7 +114,7 @@ export default function SalesEquipList() {
                       </TableHead>
                       <TableBody>
                         {equips.map((row) => (
-                          <TableRow key={row._id}  style={row.status==4 ? {backgroundColor: '#C2F784'} : {}}>
+                          <TableRow key={row._id}  style={row.status==3 ? {backgroundColor: '#C2F784'} : {}}>
                             <TableCell align="center">{row.brand}</TableCell>
                             <TableCell component="th" scope="row">
                               {row.model}
@@ -122,13 +122,13 @@ export default function SalesEquipList() {
                             <TableCell align="center">{row.client}</TableCell>
                             <TableCell align="center">{row.quantity}</TableCell>
                             <TableCell align="center">{row.observations}</TableCell>
-                            <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)} style={row.status==4 ? {backgroundColor:'green'} : {}}/></TableCell>
+                            <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)} style={row.status==3 ? {backgroundColor:'green'} : {}}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                             <TableCell align="right">
                               <ButtonGroup aria-label="outlined primary button group">
-                                <Button variant="contained" disabled={row.status!=1 && row.status!=4} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
-                                <Button variant="contained" color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
+                                <Button variant="contained" disabled={row.status!=1 && row.status!=3} color="primary" href={'/sales/equipments/edit/'+row._id}><AutorenewIcon /> Editar</Button>
+                                <Button variant="contained" disabled={row.status==3} color="secondary" onClick={() => handleDelete(row._id)}><ClearIcon /></Button>
                               </ButtonGroup>
                             </TableCell>
                           </TableRow>

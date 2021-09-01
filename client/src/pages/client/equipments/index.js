@@ -94,7 +94,7 @@ export default function EquipmentsClient() {
                       </TableHead>
                       <TableBody>
                         {equips.map((row) => (
-                          <TableRow key={row._id}  style={row.status==4 ? {backgroundColor: '#C2F784'} : {}}>
+                          <TableRow key={row._id}  style={row.status==3 ? {backgroundColor: '#C2F784'} : {}}>
                             <TableCell align="center">{row.brand}</TableCell>
                             <TableCell component="th" scope="row">
                               {row.model}
@@ -102,7 +102,7 @@ export default function EquipmentsClient() {
                             <TableCell align="center">{row.client}</TableCell>
                             <TableCell align="center">{row.quantity}</TableCell>
                             <TableCell align="center">{row.observations}</TableCell>
-                            <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)} style={row.status==4 ? {backgroundColor:'green'} : {}}/></TableCell>
+                            <TableCell align="center"><Chip label={getStatus(row.status)} color={getStatusLabel(row.status)} style={row.status==3 ? {backgroundColor:'green'} : {}}/></TableCell>
                             <TableCell align="center">{row.salesman}</TableCell>
                             <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-pt')}</TableCell>
                           </TableRow>

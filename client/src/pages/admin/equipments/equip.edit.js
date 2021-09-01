@@ -164,8 +164,8 @@ export default function EquipEdit() {
                     >
                       <MenuItem value={1}>Pendente</MenuItem>
                       <MenuItem value={2}>Em Progresso</MenuItem>
-                      <MenuItem value={3}>Completo</MenuItem>
-                      <MenuItem value={4}>Para Venda</MenuItem>
+                      <MenuItem value={3}>Para Venda</MenuItem>
+                      <MenuItem value={4}>Completo</MenuItem>
                     </Select>
                   </FormControl>
                   </Grid>
